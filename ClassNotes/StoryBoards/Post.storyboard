@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--投稿画面-->
+        <scene sceneID="BpV-as-GG1">
+            <objects>
+                <viewController id="HPX-th-fwK" customClass="PostViewController" customModule="ClassNotes" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="XOf-eL-yB5">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="nUw-2X-KlN"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="投稿画面" id="9qc-hu-E1u"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pv4-hQ-EnK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1014" y="1307"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="NvW-YI-1ln">
+            <objects>
+                <navigationController storyboardIdentifier="PostStoryBoard" automaticallyAdjustsScrollViewInsets="NO" id="lae-GW-hhz" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="" image="post" selectedImage="post_selected" id="pGV-KP-K8f">
+                        <inset key="imageInsets" minX="0.0" minY="3" maxX="0.0" maxY="-3"/>
+                    </tabBarItem>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="zNz-cx-IpG">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="HPX-th-fwK" kind="relationship" relationship="rootViewController" id="ByR-kP-6ZK"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KH9-Su-Sdx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1014" y="376"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="post" width="32" height="35"/>
+        <image name="post_selected" width="32" height="35"/>
+    </resources>
+</document>
