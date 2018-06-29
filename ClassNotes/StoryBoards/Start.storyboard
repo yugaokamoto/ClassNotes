@@ -13,7 +13,7 @@
         <!--Sign In View Controller-->
         <scene sceneID="qdf-yb-vjn">
             <objects>
-                <viewController id="UeV-hw-J9F" customClass="SignInViewController" customModule="ClassNotes" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SignInViewController" id="UeV-hw-J9F" customClass="SignInViewController" customModule="ClassNotes" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="a49-WO-GCZ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -61,7 +61,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <segue destination="cNv-bD-JZP" kind="presentation" id="1HE-pF-Rna"/>
+                                    <action selector="signIn_touchUpInside:" destination="UeV-hw-J9F" eventType="touchUpInside" id="fyO-kV-w6T"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PdI-8J-Pvl">
@@ -96,6 +96,12 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="x2n-B2-YVw"/>
                     </view>
+                    <connections>
+                        <outlet property="emailTextField" destination="3A9-YV-jOW" id="lgg-h5-XIA"/>
+                        <outlet property="passwordTextField" destination="FLt-uB-t4w" id="eDt-b0-Npl"/>
+                        <outlet property="signIn_Btn" destination="aEF-nU-QBD" id="KOL-BP-IVL"/>
+                        <segue destination="cNv-bD-JZP" kind="show" identifier="signInToTabBar" id="5Q1-dS-kVo"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UhR-Cn-YXk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -149,7 +155,7 @@
                                         </constraints>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
                                     </textField>
                                 </subviews>
                             </stackView>
@@ -180,7 +186,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <segue destination="cNv-bD-JZP" kind="presentation" id="WTN-Ju-Kbk"/>
+                                    <action selector="signUp_touchUpInside:" destination="rTV-Il-d0J" eventType="touchUpInside" id="Dcg-CB-VWq"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -202,6 +208,14 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="emw-nq-H09"/>
                     </view>
+                    <connections>
+                        <outlet property="emailTextField" destination="l2D-eb-lid" id="fdN-BE-jbD"/>
+                        <outlet property="passwordTextField" destination="NKQ-mc-706" id="hpD-CT-bGR"/>
+                        <outlet property="profileImage" destination="Btg-oA-KEl" id="W01-WQ-gIi"/>
+                        <outlet property="signUp_Btn" destination="7jr-kw-Jaf" id="J5G-gR-KN6"/>
+                        <outlet property="usernameTextField" destination="rpW-ab-tq1" id="mHS-KQ-kXt"/>
+                        <segue destination="cNv-bD-JZP" kind="show" identifier="signUpToTabBar" id="DAx-7F-Z6F"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="g1R-dE-1rI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -220,6 +234,6 @@
         <image name="placeholderImg" width="225" height="225"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="WTN-Ju-Kbk"/>
+        <segue reference="5Q1-dS-kVo"/>
     </inferredMetricsTieBreakers>
 </document>

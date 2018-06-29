@@ -26,6 +26,13 @@
 		923771B520E292F300420F70 /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923771B420E292F300420F70 /* PostViewController.swift */; };
 		923771B720E2930100420F70 /* NotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923771B620E2930100420F70 /* NotificationViewController.swift */; };
 		923771B920E2931A00420F70 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923771B820E2931A00420F70 /* ProfileViewController.swift */; };
+		923771BC20E2B14300420F70 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923771BB20E2B14300420F70 /* Config.swift */; };
+		923771BE20E2B1D400420F70 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923771BD20E2B1D400420F70 /* AuthService.swift */; };
+		923771C020E2B25E00420F70 /* SendDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923771BF20E2B25E00420F70 /* SendDataService.swift */; };
+		923771C320E3505E00420F70 /* PostApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923771C220E3505E00420F70 /* PostApi.swift */; };
+		923771C520E350A900420F70 /* Api.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923771C420E350A900420F70 /* Api.swift */; };
+		923771C820E3637B00420F70 /* UserApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923771C720E3637B00420F70 /* UserApi.swift */; };
+		923771CC20E402C900420F70 /* PostTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923771CB20E402C900420F70 /* PostTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -51,6 +58,13 @@
 		923771B420E292F300420F70 /* PostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
 		923771B620E2930100420F70 /* NotificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationViewController.swift; sourceTree = "<group>"; };
 		923771B820E2931A00420F70 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		923771BB20E2B14300420F70 /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
+		923771BD20E2B1D400420F70 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
+		923771BF20E2B25E00420F70 /* SendDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendDataService.swift; sourceTree = "<group>"; };
+		923771C220E3505E00420F70 /* PostApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostApi.swift; sourceTree = "<group>"; };
+		923771C420E350A900420F70 /* Api.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Api.swift; sourceTree = "<group>"; };
+		923771C720E3637B00420F70 /* UserApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserApi.swift; sourceTree = "<group>"; };
+		923771CB20E402C900420F70 /* PostTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostTableViewController.swift; sourceTree = "<group>"; };
 		F10138077381CA09B2BC523C /* Pods-ClassNotes.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ClassNotes.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ClassNotes/Pods-ClassNotes.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -88,6 +102,9 @@
 			isa = PBXGroup;
 			children = (
 				9224D23220E0199500DA6B05 /* AppDelegate.swift */,
+				923771BB20E2B14300420F70 /* Config.swift */,
+				923771C620E350B200420F70 /* APIs */,
+				923771C120E2B33200420F70 /* MainFunctionServices */,
 				923771BA20E2933000420F70 /* VCs */,
 				923771AF20E2925900420F70 /* StoryBoards */,
 				9224D23920E0199900DA6B05 /* Assets.xcassets */,
@@ -120,10 +137,30 @@
 				923771B020E292D900420F70 /* HomeViewController.swift */,
 				923771B220E292E600420F70 /* SearchViewController.swift */,
 				923771B420E292F300420F70 /* PostViewController.swift */,
+				923771CB20E402C900420F70 /* PostTableViewController.swift */,
 				923771B620E2930100420F70 /* NotificationViewController.swift */,
 				923771B820E2931A00420F70 /* ProfileViewController.swift */,
 			);
 			path = VCs;
+			sourceTree = "<group>";
+		};
+		923771C120E2B33200420F70 /* MainFunctionServices */ = {
+			isa = PBXGroup;
+			children = (
+				923771BD20E2B1D400420F70 /* AuthService.swift */,
+				923771BF20E2B25E00420F70 /* SendDataService.swift */,
+			);
+			path = MainFunctionServices;
+			sourceTree = "<group>";
+		};
+		923771C620E350B200420F70 /* APIs */ = {
+			isa = PBXGroup;
+			children = (
+				923771C220E3505E00420F70 /* PostApi.swift */,
+				923771C420E350A900420F70 /* Api.swift */,
+				923771C720E3637B00420F70 /* UserApi.swift */,
+			);
+			path = APIs;
 			sourceTree = "<group>";
 		};
 		99A131AF8D0624A3F0310422 /* Frameworks */ = {
@@ -246,6 +283,7 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-ClassNotes/Pods-ClassNotes-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/ImagePicker/ImagePicker.framework",
 				"${BUILT_PRODUCTS_DIR}/ProgressHUD/ProgressHUD.framework",
 				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
 				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
@@ -255,6 +293,7 @@
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ImagePicker.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ProgressHUD.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
@@ -274,10 +313,17 @@
 			files = (
 				923771B520E292F300420F70 /* PostViewController.swift in Sources */,
 				923771B320E292E600420F70 /* SearchViewController.swift in Sources */,
+				923771BC20E2B14300420F70 /* Config.swift in Sources */,
 				920721AF20E22E1700BAD749 /* SignUpViewController.swift in Sources */,
+				923771C320E3505E00420F70 /* PostApi.swift in Sources */,
+				923771C820E3637B00420F70 /* UserApi.swift in Sources */,
 				923771B720E2930100420F70 /* NotificationViewController.swift in Sources */,
+				923771C520E350A900420F70 /* Api.swift in Sources */,
 				920721AD20E22E0600BAD749 /* SignInViewController.swift in Sources */,
 				9224D23320E0199500DA6B05 /* AppDelegate.swift in Sources */,
+				923771CC20E402C900420F70 /* PostTableViewController.swift in Sources */,
+				923771BE20E2B1D400420F70 /* AuthService.swift in Sources */,
+				923771C020E2B25E00420F70 /* SendDataService.swift in Sources */,
 				923771B920E2931A00420F70 /* ProfileViewController.swift in Sources */,
 				923771B120E292D900420F70 /* HomeViewController.swift in Sources */,
 			);
