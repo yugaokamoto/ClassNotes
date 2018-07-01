@@ -13,7 +13,7 @@
         <!--ホーム-->
         <scene sceneID="Nso-nk-Kd3">
             <objects>
-                <viewController id="arl-pm-MSb" customClass="HomeViewController" customModule="ClassNotes" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="HomeViewController" id="arl-pm-MSb" customClass="HomeViewController" customModule="ClassNotes" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="4ft-yI-j1z">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
