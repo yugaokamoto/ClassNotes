@@ -154,7 +154,7 @@
                                         <constraint firstAttribute="height" constant="65" id="nLL-PU-3R1"/>
                                     </constraints>
                                 </view>
-                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Yuu-px-juU">
+                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Yuu-px-juU">
                                     <rect key="frame" x="70" y="64" width="235" height="321"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="235" id="jhJ-yY-iVU"/>
@@ -299,11 +299,20 @@
                         <outlet property="noteNameTextField" destination="nqK-Ge-ITj" id="UiJ-RG-mIh"/>
                         <outlet property="post_Btn" destination="9SG-nu-ZJ2" id="mwY-dS-Qgl"/>
                         <outlet property="selectedimageView" destination="Yuu-px-juU" id="v69-bp-F0l"/>
+                        <segue destination="76w-yk-Kns" kind="show" identifier="PostTable_HomeSegue" id="n8x-7Q-DQ7"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ERe-jP-Wya" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2056.8000000000002" y="1305.697151424288"/>
+        </scene>
+        <!--HomeViewController-->
+        <scene sceneID="HtP-w0-Keh">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Home" referencedIdentifier="HomeViewController" id="76w-yk-Kns" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xrr-4y-l6Z" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2852" y="1305"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="NvW-YI-1ln">

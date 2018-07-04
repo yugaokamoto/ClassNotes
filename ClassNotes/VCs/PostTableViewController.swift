@@ -8,7 +8,8 @@
 
 import UIKit
 import ImagePicker
-
+import ProgressHUD
+import Firebase
 class PostTableViewController: UITableViewController, UITextFieldDelegate {
 
     var pageCount = 0
@@ -103,12 +104,140 @@ class PostTableViewController: UITableViewController, UITextFieldDelegate {
     }
     
     
+    var photoStringDelegate:String?
+   
+ 
     
     @IBAction func post_touchUpInside(_ sender: Any) {
-        
+        //データをまとめてデータベースに投げる処理
+        ProgressHUD.show("Waiting...", interaction: false)
+        for selectedImage in selectedImages {
+              print("selectedImage times: \(selectedImage)")
+            
+            if selectedImage == selectedImages.first{
+                if  let imageData = UIImageJPEGRepresentation(selectedImage, 0.1) {
+                    print("selectedImage[0]: \(selectedImage)")
+                    let photoIdString = NSUUID().uuidString
+                     print("photoIdString[0]: \(photoIdString)")
+                    photoStringDelegate = photoIdString
+                    let storageRef = Storage.storage().reference(forURL: Config.STORAGE_ROOF_REF).child("posts").child("\(photoIdString)").child(photoIdString)
+               sendDataTostorage(storageRef: storageRef, imageData: imageData)
+                    
+                }
+            }
+
+            if selectedImage != selectedImages.first{
+                if  let imageData = UIImageJPEGRepresentation(selectedImage, 0.1) {
+                    print("selectedImage[other]: \(selectedImage)")
+                    let photoIdString = NSUUID().uuidString
+                    let storageRef = Storage.storage().reference(forURL: Config.STORAGE_ROOF_REF).child("posts").child(photoStringDelegate!).child(photoIdString)
+                    print("photoStringDelegate: \(photoStringDelegate)")
+               sendDataTostorage2(storageRef: storageRef, imageData: imageData)
+            }
+       }
+            
+            
     }
-  
+    
+  }
+    
+    func sendDataTostorage(storageRef:StorageReference,imageData:Data){
+        storageRef.putData(imageData, metadata: nil) { (metadata, error) in
+            if error != nil{
+                return
+            }
+            storageRef.downloadURL(completion: { (url, error) in
+                if error != nil{
+                    ProgressHUD.showError(error!.localizedDescription)
+                    return
+                }
+                if let mainPhotoUrl = url?.absoluteString {
+                    self.sendToDatabase(mainPhotoUrl:mainPhotoUrl)
+                }
+            })
+        }
+    }
+
+    func sendDataTostorage2(storageRef:StorageReference,imageData:Data){
+        storageRef.putData(imageData, metadata: nil) { (metadata, error) in
+            if error != nil{
+                return
+            }
+            storageRef.downloadURL(completion: { (url, error) in
+                if error != nil{
+                    ProgressHUD.showError(error!.localizedDescription)
+                    return
+                }
+                if let subPhotoUrl = url?.absoluteString {
+                    self.sendToDatabase(subPhotoUrl:subPhotoUrl)
+                }
+            })
+        }
+    }
+
+  func sendToDatabase(mainPhotoUrl:String? = nil,subPhotoUrl:String? = nil){
+        let newPostId = Api.Post.REF_POSTS.childByAutoId().key
+        let newPostReference = Api.Post.REF_POSTS.child(newPostId)
+     
+        
+        
+          var dict = [:] as [String:Any]
+        if let mainPhotoUrl = mainPhotoUrl {
+            dict["mainPhotoUrl"] = mainPhotoUrl
+            
+        }
+        if let subPhotoUrl = subPhotoUrl{
+            dict["subPhotoUrl"] = subPhotoUrl
+        }
+        //dictにsubPhotoUrlの値をぶち込む
+        
+        newPostReference.setValue(dict, withCompletionBlock: {
+            (error, ref) in
+            if error != nil {
+                ProgressHUD.showError(error!.localizedDescription)
+                return
+            }
+            ProgressHUD.showSuccess("Success")
+    })
+    }
+    
+    
+    
+    
     
 }
+    
+    
+
+
+
+//    func sendToDatabase2(subPhotoUrl:String? = nil){
+//        let newPostId = Api.Post.REF_POSTS.childByAutoId().key
+//        let newPostReference = Api.Post.REF_POSTS.child(newPostId)
+//
+//        //newPostIdはsendToDatabaseから取ってくる。
+//
+//        var dict = [:] as [String:Any]
+//
+//        if let subPhotoUrl = subPhotoUrl{
+//            dict["subPhotoUrl"] = subPhotoUrl
+//        }
+//        //dictにsubPhotoUrlの値をぶち込む
+//
+//        
+//
+//        newPostReference.setValue(dict, withCompletionBlock: {
+//            (error, ref) in
+//            if error != nil {
+//                ProgressHUD.showError(error!.localizedDescription)
+//                return
+//            }
+//            ProgressHUD.showSuccess("Success")
+//        })
+//    }
+//
+
+
+
 
 

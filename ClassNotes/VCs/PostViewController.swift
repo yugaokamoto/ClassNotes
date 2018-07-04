@@ -20,7 +20,7 @@ class PostViewController: UIViewController,ImagePickerDelegate{
     @IBAction func openCamera_touchUpInside(_ sender: Any) {
         let imagePickerController = ImagePickerController()
         imagePickerController.delegate = self
-        imagePickerController.imageLimit = 3
+        imagePickerController.imageLimit = 4
         present(imagePickerController, animated: true, completion: nil)
     }
 
